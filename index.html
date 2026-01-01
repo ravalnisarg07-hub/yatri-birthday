@@ -197,6 +197,22 @@ p {
   opacity: 1;
   transform: scale(1);
 }
+#playMusicBtn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 1em;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+#playMusicBtn:active {
+  transform: scale(0.95);
+}
 
 
 </style>
@@ -207,6 +223,7 @@ p {
 <body>
 
 <h1>🎂 Happy Birthday Yatri 🎂</h1>
+<button id="playMusicBtn">🎶 Tap for Music</button>
 
 <div id="message"></div>
 
@@ -317,23 +334,26 @@ setInterval(() => {
 const music = document.getElementById("bgMusic");
 let started = false;
 
-document.body.addEventListener("click", () => {
-  if (!started) {
-    started = true;
-    music.volume = 0;
-    music.play();
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("playMusicBtn");
 
-    let volume = 0;
-    const fadeIn = setInterval(() => {
-      if (volume < 0.6) {
-        volume += 0.02;
-        music.volume = volume;
-      } else {
-        clearInterval(fadeIn);
-      }
-    }, 200);
-  }
+btn.addEventListener("click", () => {
+  music.volume = 0;
+  music.play();
+
+  let volume = 0;
+  const fadeIn = setInterval(() => {
+    if (volume < 0.6) {
+      volume += 0.02;
+      music.volume = volume;
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, 200);
+
+  btn.style.display = "none"; // hide button after play
 });
+
 let current = 0;
 
 function flipPhotos() {
