@@ -39,13 +39,7 @@ h1 {
 }
 
 /* Typing text */
-#message {
-  color: #fff;
-  font-size: 1.2em;
-  width: 85%;
-  margin: 20px auto;
-  min-height: 120px;
-}
+
 
 /* Gallery */
 .gallery img {
@@ -187,6 +181,22 @@ p {
     font-size: 22px !important;
   }
 }
+#finalWow {
+  opacity: 0;
+  margin: 50px auto 80px;
+  font-size: clamp(1.4em, 4vw, 2em);
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255,255,255,0.8);
+  transition: opacity 2s ease, transform 2s ease;
+  transform: scale(0.9);
+}
+
+#finalWow.show {
+  opacity: 1;
+  transform: scale(1);
+}
 
 
 </style>
@@ -267,8 +277,27 @@ function typeEffect() {
       line++;
       setTimeout(typeEffect, 600);
     }
+  } else {
+    // 🎉 WOW ending
+    setTimeout(() => {
+      document.getElementById("finalWow").classList.add("show");
+      burstHearts();
+    }, 1000);
   }
 }
+function burstHearts() {
+  for (let i = 0; i < 20; i++) {
+    const h = document.createElement("div");
+    h.className = "floating";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = "30px";
+    document.body.appendChild(h);
+
+    setTimeout(() => h.remove(), 5000);
+  }
+}
+
 typeEffect();
 
 /* Hearts & flowers */
@@ -324,5 +353,10 @@ function flipPhotos() {
 Because having you as my friend is a gift.<br><br>
 Happy Birthday, always stay happy 💝
 </p>
+  <div id="finalWow">
+  💝 Forever grateful for you, Yatri 💝<br>
+  <span>You are truly special ✨</span>
+</div>
+
 
 </html>
