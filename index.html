@@ -6,29 +6,29 @@
 
 <title>Happy Birthday Yatri 💖</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow-y: auto;   /* enable vertical scroll */
-  overflow-x: hidden;
-  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 html {
   scroll-behavior: smooth;
 }
 
-
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* Heading */
 h1 {
-  margin-top: 40px;
-  font-size: 2.8em;
+  margin-top: 30px;
+  font-size: clamp(2em, 5vw, 2.8em);
   color: #fff;
   animation: glow 2s infinite alternate;
 }
@@ -38,59 +38,36 @@ h1 {
   to { text-shadow: 0 0 30px #ff4d6d; }
 }
 
-/* Typing text */
-
-
-/* Gallery */
-.gallery img {
-  width: 160px;
-  border-radius: 15px;
-  margin: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* Floating hearts & flowers */
-.floating {
-  position: fixed;
-  bottom: -30px;
-  animation: float 7s linear infinite;
-  opacity: 0.9;
-}
-
-@keyframes float {
-  to {
-    transform: translateY(-120vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-p {
+/* Music button */
+#playMusicBtn {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1em;
   color: white;
-  font-size: 1.2em;
   font-family: 'Poppins', sans-serif;
-  max-width: 600px;
-  margin: 20px auto;
-  line-height: 1.6;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
 }
+
+#playMusicBtn:active {
+  transform: scale(0.95);
+}
+
+/* Message text */
 #message {
-  font-family: 'Poppins', sans-serif;   /* clean & cute */
-  font-size: 1.3em;
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(1.05em, 2.8vw, 1.4em);
   color: #ffffff;
   line-height: 1.8;
-  font-family: 'Pacifico', cursive;
   text-shadow: 0 0 10px rgba(255,255,255,0.6);
-  max-height: 200px;
-  overflow-y: auto;
-  padding: 10px;
-}
-.highlight {
-  color: #ffd6e0;
-  font-weight: 500;
+  width: min(92%, 650px);
+  margin: 20px auto;
 }
 
-.big {
-  font-size: 1.6em;
-  font-family: 'Pacifico', cursive;
-}
+/* Gallery */
 .gallery {
   display: flex;
   justify-content: center;
@@ -100,8 +77,8 @@ p {
 }
 
 .card {
-  width: 160px;
-  height: 220px;
+  width: 180px;
+  height: 240px;
   perspective: 1000px;
 }
 
@@ -129,7 +106,7 @@ p {
 }
 
 .card-front {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
   font-size: 3em;
 }
 
@@ -144,50 +121,29 @@ p {
   object-fit: cover;
   border-radius: 15px;
 }
-/* 📱 Mobile Optimization */
-@media (max-width: 768px) {
 
-  h1 {
-    font-size: 2em;
-    margin-top: 20px;
-  }
+/* Floating hearts */
+.floating {
+  position: fixed;
+  bottom: -30px;
+  animation: float 7s linear infinite;
+  opacity: 0.9;
+}
 
-  #message {
-    font-size: 1.1em;
-    width: 92%;
-    max-height: none;
-  }
-
-  .gallery {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .card {
-    width: 200px;
-    height: 260px;
-  }
-
-  .card-front {
-    font-size: 2.5em;
-  }
-
-  p {
-    font-size: 1em;
-    padding: 0 15px;
-  }
-
-  .floating {
-    font-size: 22px !important;
+@keyframes float {
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
   }
 }
+
+/* Final wow message */
 #finalWow {
   opacity: 0;
   margin: 50px auto 80px;
   font-size: clamp(1.4em, 4vw, 2em);
   font-family: 'Pacifico', cursive;
   color: #fff;
-  text-align: center;
   text-shadow: 0 0 20px rgba(255,255,255,0.8);
   transition: opacity 2s ease, transform 2s ease;
   transform: scale(0.9);
@@ -197,32 +153,20 @@ p {
   opacity: 1;
   transform: scale(1);
 }
-#playMusicBtn {
-  background: rgba(255,255,255,0.25);
-  border: none;
-  padding: 10px 18px;
-  border-radius: 25px;
-  font-size: 1em;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  margin-top: 10px;
-  cursor: pointer;
-  backdrop-filter: blur(5px);
+
+/* Mobile */
+@media (max-width: 768px) {
+  .gallery {
+    flex-direction: column;
+  }
 }
-
-#playMusicBtn:active {
-  transform: scale(0.95);
-}
-
-
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
 <h1>🎂 Happy Birthday Yatri 🎂</h1>
+
 <button id="playMusicBtn">🎶 Tap for Music</button>
 
 <div id="message"></div>
@@ -231,41 +175,34 @@ p {
   <div class="card">
     <div class="card-inner">
       <div class="card-front">💖</div>
-      <div class="card-back">
-        <img src="yatri1.jpg">
-      </div>
+      <div class="card-back"><img src="yatri1.jpg"></div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-inner">
       <div class="card-front">🌸</div>
-      <div class="card-back">
-        <img src="yatri2.jpg">
-      </div>
+      <div class="card-back"><img src="yatri2.jpg"></div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-inner">
       <div class="card-front">❤️</div>
-      <div class="card-back">
-        <img src="yatri3.png">
-      </div>
+      <div class="card-back"><img src="yatri3.png"></div>
     </div>
   </div>
 </div>
 
-<p style="color:white;font-size:0.9em;">Tap the card 💖</p>
-
-
-<!-- Soft background music -->
-<audio id="bgMusic" loop>
+<!-- Audio -->
+<audio id="bgMusic" preload="auto" loop>
   <source src="happy-birthday-to-you-piano-version-13976 (1)" type="audio/mp3">
 </audio>
 
-
-
+<div id="finalWow">
+  💝 Forever grateful for you, Yatri 💝<br>
+  <span>You are truly special ✨</span>
+</div>
 
 <script>
 /* Typing animation */
@@ -274,8 +211,7 @@ const text = [
   "Thank you for the smiles, memories, and friendship 💖",
   "Always stay the amazing person you are ✨",
   "Some friendships don’t need words, they just feel right 🌷",
-  "I’m thankful for every moment and memory with you.",
-  "Always stay the same amazing person you are 💖"
+  "I’m thankful for every moment and memory with you 💕"
 ];
 
 let line = 0, char = 0;
@@ -295,31 +231,26 @@ function typeEffect() {
       setTimeout(typeEffect, 600);
     }
   } else {
-    // 🎉 WOW ending
     setTimeout(() => {
       document.getElementById("finalWow").classList.add("show");
       burstHearts();
     }, 1000);
   }
 }
-function burstHearts() {
-  for (let i = 0; i < 20; i++) {
-    const h = document.createElement("div");
-    h.className = "floating";
-    h.innerHTML = "💖";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.fontSize = "30px";
-    document.body.appendChild(h);
+typeEffect();
 
-    setTimeout(() => h.remove(), 5000);
+/* Flip cards */
+let current = 0;
+function flipPhotos() {
+  const cards = document.querySelectorAll(".card");
+  if (current < cards.length) {
+    cards[current].classList.add("flipped");
+    current++;
   }
 }
 
-typeEffect();
-
-/* Hearts & flowers */
+/* Floating hearts */
 const symbols = ["❤️", "🌸", "💐"];
-
 setInterval(() => {
   const el = document.createElement("div");
   el.className = "floating";
@@ -327,20 +258,17 @@ setInterval(() => {
   el.style.left = Math.random() * 100 + "vw";
   el.style.fontSize = (20 + Math.random() * 30) + "px";
   document.body.appendChild(el);
-
   setTimeout(() => el.remove(), 7000);
 }, 500);
-/* 🎵 Music starts after first click (browser safe) */
-const music = document.getElementById("bgMusic");
-let started = false;
 
+/* Music play (mobile safe) */
 const music = document.getElementById("bgMusic");
 const btn = document.getElementById("playMusicBtn");
 
 btn.addEventListener("click", () => {
+  music.currentTime = 0;
   music.volume = 0;
-  music.play();
-
+  music.play().catch(() => {});
   let volume = 0;
   const fadeIn = setInterval(() => {
     if (volume < 0.6) {
@@ -350,33 +278,21 @@ btn.addEventListener("click", () => {
       clearInterval(fadeIn);
     }
   }, 200);
-
-  btn.style.display = "none"; // hide button after play
+  btn.style.display = "none";
 });
 
-let current = 0;
-
-function flipPhotos() {
-  const cards = document.querySelectorAll(".card");
-
-  if (current < cards.length) {
-    cards[current].classList.add("flipped");
-    current++;
+function burstHearts() {
+  for (let i = 0; i < 20; i++) {
+    const h = document.createElement("div");
+    h.className = "floating";
+    h.innerHTML = "💖";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = "30px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 5000);
   }
 }
-
 </script>
 
 </body>
-<p style="color:white;font-size:0.9em;">Tap anywhere 💖</p>
-<p>Today is your day, but I feel lucky too 🎂<br><br>
-Because having you as my friend is a gift.<br><br>
-Happy Birthday, always stay happy 💝
-</p>
-  <div id="finalWow">
-  💝 Forever grateful for you, Yatri 💝<br>
-  <span>You are truly special ✨</span>
-</div>
-
-
 </html>
