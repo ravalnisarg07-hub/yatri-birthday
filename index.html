@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <title>Happy Birthday Yatri 💖</title>
 
 <style>
@@ -14,6 +15,9 @@ body {
   background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
   font-family: 'Poppins', sans-serif;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 html {
   scroll-behavior: smooth;
@@ -146,6 +150,43 @@ p {
   object-fit: cover;
   border-radius: 15px;
 }
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 2em;
+    margin-top: 20px;
+  }
+
+  #message {
+    font-size: 1.1em;
+    width: 92%;
+    max-height: none;
+  }
+
+  .gallery {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .card {
+    width: 200px;
+    height: 260px;
+  }
+
+  .card-front {
+    font-size: 2.5em;
+  }
+
+  p {
+    font-size: 1em;
+    padding: 0 15px;
+  }
+
+  .floating {
+    font-size: 22px !important;
+  }
+}
 
 
 </style>
@@ -242,7 +283,7 @@ setInterval(() => {
   document.body.appendChild(el);
 
   setTimeout(() => el.remove(), 7000);
-}, 300);
+}, 500);
 /* 🎵 Music starts after first click (browser safe) */
 const music = document.getElementById("bgMusic");
 let started = false;
