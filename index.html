@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Yatri 💖</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-y: auto;   /* enable vertical scroll */
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Heading */
+h1 {
+  margin-top: 40px;
+  font-size: 2.8em;
+  color: #fff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 30px #ff4d6d; }
+}
+
+/* Typing text */
+#message {
+  color: #fff;
+  font-size: 1.2em;
+  width: 85%;
+  margin: 20px auto;
+  min-height: 120px;
+}
+
+/* Gallery */
+.gallery img {
+  width: 160px;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Floating hearts & flowers */
+.floating {
+  position: fixed;
+  bottom: -30px;
+  animation: float 7s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+p {
+  color: white;
+  font-size: 1.2em;
+  font-family: 'Poppins', sans-serif;
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+#message {
+  font-family: 'Poppins', sans-serif;   /* clean & cute */
+  font-size: 1.3em;
+  color: #ffffff;
+  line-height: 1.8;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+.highlight {
+  color: #ffd6e0;
+  font-weight: 500;
+}
+
+.big {
+  font-size: 1.6em;
+  font-family: 'Pacifico', cursive;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.card {
+  width: 160px;
+  height: 220px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-front {
+  background: rgba(255,255,255,0.2);
+  font-size: 3em;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: white;
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday Yatri 🎂</h1>
+
+<div id="message"></div>
+
+<div class="gallery" onclick="flipPhotos()">
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">💖</div>
+      <div class="card-back">
+        <img src="yatri1.jpg">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">🌸</div>
+      <div class="card-back">
+        <img src="yatri2.jpg">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">❤️</div>
+      <div class="card-back">
+        <img src="yatri3.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+<p style="color:white;font-size:0.9em;">Tap the card 💖</p>
+
+
+<!-- Soft background music -->
+<audio id="bgMusic" loop>
+  <source src="C:\Users\hp\Downloads\happy-birthday-to-you-piano-version-13976.mp3" type="audio/mp3">
+</audio>
+
+
+
+
+<script>
+/* Typing animation */
+const text = [
+  "Some people make life brighter just by being in it 🌸",
+  "Thank you for the smiles, memories, and friendship 💖",
+  "Always stay the amazing person you are ✨",
+  "Some friendships don’t need words, they just feel right 🌷",
+  "I’m thankful for every moment and memory with you.",
+  "Always stay the same amazing person you are 💖"
+];
+
+let line = 0, char = 0;
+const speed = 50;
+const msgDiv = document.getElementById("message");
+
+function typeEffect() {
+  if (line < text.length) {
+    if (char < text[line].length) {
+      msgDiv.innerHTML += text[line].charAt(char);
+      char++;
+      setTimeout(typeEffect, speed);
+    } else {
+      msgDiv.innerHTML += "<br><br>";
+      char = 0;
+      line++;
+      setTimeout(typeEffect, 600);
+    }
+  }
+}
+typeEffect();
+
+/* Hearts & flowers */
+const symbols = ["❤️", "🌸", "💐"];
+
+setInterval(() => {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = (20 + Math.random() * 30) + "px";
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 7000);
+}, 300);
+/* 🎵 Music starts after first click (browser safe) */
+const music = document.getElementById("bgMusic");
+let started = false;
+
+document.body.addEventListener("click", () => {
+  if (!started) {
+    started = true;
+    music.volume = 0;
+    music.play();
+
+    let volume = 0;
+    const fadeIn = setInterval(() => {
+      if (volume < 0.6) {
+        volume += 0.02;
+        music.volume = volume;
+      } else {
+        clearInterval(fadeIn);
+      }
+    }, 200);
+  }
+});
+let current = 0;
+
+function flipPhotos() {
+  const cards = document.querySelectorAll(".card");
+
+  if (current < cards.length) {
+    cards[current].classList.add("flipped");
+    current++;
+  }
+}
+
+</script>
+
+</body>
+<p style="color:white;font-size:0.9em;">Tap anywhere 💖</p>
+<p>Today is your day, but I feel lucky too 🎂<br><br>
+Because having you as my friend is a gift.<br><br>
+Happy Birthday, always stay happy 💝
+</p>
+
+</html>
